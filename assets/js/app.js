@@ -78,7 +78,9 @@
   panelIds.forEach(function (id) { if (bioOrder.indexOf(id) < 0) bioOrder.push(id); });
   bioOrder = bioOrder.filter(function (id) { var p = person(id); return p && p.bio && p.bio.length; });
 
-  var hasReg = !!(E.registration && E.registration.url);
+  // Registration shows while a link is set, and hides itself after the event ends
+  var hasReg = !!(E.registration && E.registration.url) && Date.now() < at(E.end).getTime();
+  var past = E.pastEvents && E.pastEvents.url ? E.pastEvents : null;
   var hasContact = !!(E.contact && E.contact.email);
 
   /* ---------- Calendar ---------- */
@@ -141,15 +143,16 @@
   /* ---------- Navigation ---------- */
   function renderNav() {
     var links = [
-      ["about", "About"], ["agenda", "Agenda"],
-      keynoteItems.length ? ["speakers", "Speakers"] : null,
-      panel ? ["panel", "Panel"] : null,
-      ["organizers", "Organizers"],
-      hasReg ? ["register", "Register"] : null,
-      ["venue", hasContact ? "Venue & contact" : "Venue"]
+      ["#about", "About"], ["#agenda", "Agenda"],
+      keynoteItems.length ? ["#speakers", "Speakers"] : null,
+      panel ? ["#panel", "Panel"] : null,
+      ["#organizers", "Organizers"],
+      ["#venue", hasContact ? "Venue & contact" : "Venue"],
+      past ? [past.url, past.label || "Past events", "nav-page"] : null,
+      hasReg ? ["#register", "Register", "nav-cta"] : null
     ].filter(Boolean);
     $("#nav-list").innerHTML = links.map(function (l) {
-      return '<li><a href="#' + l[0] + '">' + esc(l[1]) + "</a></li>";
+      return '<li><a href="' + esc(l[0]) + '"' + (l[2] ? ' class="' + l[2] + '"' : "") + ">" + esc(l[1]) + "</a></li>";
     }).join("");
   }
 
@@ -369,15 +372,35 @@
   }
 
   /* ---------- Registration ---------- */
+  function qrSvg(url) {
+    // Uses the bundled qrcode.min.js; returns "" if it isn't available
+    if (typeof window.qrcode !== "function") return "";
+    try {
+      var qr = window.qrcode(0, "M");
+      qr.addData(url);
+      qr.make();
+      return qr.createSvgTag({ cellSize: 6, margin: 0, scalable: true })
+        .replace(/fill="black"/g, 'fill="#13285B"')
+        .replace("<svg ", '<svg role="img" aria-label="QR code for the registration form" ');
+    } catch (e) { return ""; }
+  }
   function renderRegister() {
     if (!hasReg) return;
     var r = E.registration;
     var sec = $("#register");
+    var qr = qrSvg(r.url);
+    var shortUrl = r.url.replace(/^https?:\/\//, "");
     sec.hidden = false;
-    sec.innerHTML = '<div class="wrap register-inner"><div>' +
-      '<h2 id="register-title" class="h2">Registration</h2>' +
-      (r.note ? '<p class="lede">' + esc(r.note) + "</p>" : "") + "</div>" +
-      '<a class="btn btn-primary" href="' + esc(r.url) + '" target="_blank" rel="noopener">' + esc(r.label || "Register") + "</a></div>";
+    sec.innerHTML = '<div class="wrap register-grid">' +
+      '<div class="register-text">' +
+        '<h2 id="register-title" class="h2">Register to attend</h2>' +
+        (r.note ? '<p class="lede">' + esc(r.note) + "</p>" : "") +
+        (qr ? '<ol class="register-steps"><li>Open your phone camera</li><li>Scan the code</li><li>Submit the form</li></ol>' : "") +
+        '<div class="register-actions"><a class="btn btn-primary" href="' + esc(r.url) + '" target="_blank" rel="noopener">Open the registration form</a></div>' +
+        '<p class="register-link">Or type this address: <a href="' + esc(r.url) + '" target="_blank" rel="noopener">' + esc(shortUrl) + "</a></p>" +
+      "</div>" +
+      (qr ? '<figure class="register-qr"><div class="qr-frame">' + qr + '</div><figcaption>Scan to register</figcaption></figure>' : "") +
+      "</div>";
   }
 
   /* ---------- Venue and contact ---------- */
@@ -412,7 +435,9 @@
       '<div class="footer-main"><p class="footer-title">' + esc(E.title) + "</p>" +
       '<p class="footer-org">' + esc(E.organizedBy) + "</p></div>" +
       '<p class="footer-date" aria-label="' + esc(E.dateLabel) + '">' + d[2] + " • " + d[1] + " • " + d[0] + "</p></div>" +
-      '<div class="wrap footer-note"><p>' + esc(E.disclaimer || "") + '</p><a href="#home">Back to top</a></div>';
+      '<div class="wrap footer-note"><p>' + esc(E.disclaimer || "") + "</p><p class=\"footer-links\">" +
+      (past ? '<a href="' + esc(past.url) + '">' + esc(past.label || "Past events") + "</a>" : "") +
+      '<a href="#home">Back to top</a></p></div>';
   }
 
   /* ---------- Network motif (SVG) ---------- */

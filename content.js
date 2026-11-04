@@ -15,6 +15,7 @@
 
    Sources used for this edition (all from the organizers' files)
    • Women in AI Forum_Agenda Flyer.png       (agenda, titles, roles)
+   • agenda_updated.png (4 Nov 2026)         (current agenda: 8:30 AM – 1:30 PM)
    • Women_in_AI_Forum_2026_-_Stage_Deck.pptx (opening session roles)
    • Speaker Abstract and Bio_*.docx / *-bio.docx (talks and bios)
    • Panel_Discussion_3rd_Women_in_AI_Forum_Final.docx (panel format)
@@ -24,14 +25,15 @@ window.EVENT = {
 
   /* ---------- Basic details ---------- */
   title: "3rd Women in AI Forum",
-  // How the title breaks onto lines in the big heading (use \n for a new line)
-  heroTitle: "3rd Women in AI\nForum",
+  // The big heading on the home section (shown on one line; a leading
+  // number such as "3rd" is styled in red automatically)
+  heroTitle: "3rd Women in AI Forum",
   date: "2026-11-11",                 // YYYY-MM-DD
-  start: "09:30",                     // event start (UAE time)
-  end: "15:00",                       // event end   (UAE time)
+  start: "08:30",                     // event start (UAE time)
+  end: "13:30",                       // event end   (UAE time)
   utcOffset: "+04:00",                // UAE time zone offset (no daylight saving)
   dateLabel: "Wednesday, 11 November 2026",
-  timeLabel: "9:30 AM – 3:00 PM",
+  timeLabel: "8:30 AM – 1:30 PM",
 
   venue: {
     name: "ADU Auditorium",
@@ -54,17 +56,17 @@ window.EVENT = {
   /* ---------- About ---------- */
   about: [
     "The 3rd Women in AI Forum is a one-day forum at Abu Dhabi University, organized by the College of Engineering and the Research Institute for AI & Emerging Technologies (RAIET).",
-    "The programme features four keynote talks by speakers from Space42, EVA.ai and the University of Birmingham Dubai, covering Earth intelligence, AI-driven weather forecasting, AI-native engineering and trustworthy AI. It continues with a panel discussion on the theme “Generative AI: Opportunity or Threat for the Next Generation?”, with panelists from UAE University, the University of Dubai, 10Pearls and EVA.ai."
+    "The programme features four keynote talks by speakers from Space42, EVA.ai and the University of Birmingham Dubai, covering Earth intelligence, AI-native engineering, trustworthy AI and AI-driven weather forecasting. It continues with a panel discussion on the theme “Generative AI: Opportunity or Threat for the Next Generation?”, with panelists from UAE University, the University of Dubai, 10Pearls and EVA.ai."
   ],
 
   // "The day at a glance" timeline
   glance: [
-    { time: "09:30", label: "Registration and welcome" },
-    { time: "10:00", label: "Opening session" },
-    { time: "11:00", label: "Keynote talks" },
-    { time: "13:00", label: "Panel discussion" },
-    { time: "13:45", label: "Appreciation and closing" },
-    { time: "14:10", label: "Refreshments and networking" }
+    { time: "08:30", label: "Registration and welcome" },
+    { time: "09:00", label: "Opening session" },
+    { time: "09:35", label: "Keynote talks" },
+    { time: "11:35", label: "Panel discussion" },
+    { time: "12:20", label: "Appreciation and closing" },
+    { time: "12:45", label: "Refreshments and networking" }
   ],
 
   /* ---------- People ----------
@@ -195,7 +197,7 @@ window.EVENT = {
       title: "Registration",
       icon: "clipboard",
       items: [
-        { start: "09:30", end: "10:00", title: "Registration & Welcome", who: "All participants" }
+        { start: "08:30", end: "09:00", title: "Registration & Welcome", who: "All participants" }
       ]
     },
     {
@@ -203,13 +205,12 @@ window.EVENT = {
       title: "Opening Session",
       icon: "mic",
       items: [
-        { start: "10:00", end: "10:05", title: "UAE National Anthem" },
-        { start: "10:05", end: "10:10", title: "ADU Welcome Remarks", people: ["aouad"] },
-        { start: "10:10", end: "10:15", title: "College of Engineering Remarks", people: ["sheibani"] },
-        { start: "10:15", end: "10:20", title: "Research & Innovation Remarks", people: ["qasymeh"] },
-        { start: "10:20", end: "10:25", title: "Research Institute (RAIET) Remarks", people: ["ghazal"] },
-        { start: "10:25", end: "10:40", title: "Forum Remarks", people: ["ahmed", "basiouni"], who: "Forum Organizers" },
-        { start: "10:40", end: "11:00", title: "Photo Session", who: "All participants" }
+        { start: "09:00", end: "09:05", title: "UAE National Anthem" },
+        { start: "09:05", end: "09:10", title: "ADU Welcome Remarks", people: ["aouad"] },
+        { start: "09:10", end: "09:15", title: "College of Engineering Remarks", people: ["sheibani"] },
+        { start: "09:15", end: "09:20", title: "Research & Innovation Remarks", people: ["qasymeh"] },
+        { start: "09:20", end: "09:30", title: "Photo Session", who: "All participants" },
+        { start: "09:30", end: "09:35", title: "Forum Remarks", people: ["ahmed", "basiouni"], who: "Forum Organizers" }
       ]
     },
     {
@@ -218,21 +219,14 @@ window.EVENT = {
       icon: "screen",
       items: [
         {
-          start: "11:00", end: "11:40", keynote: true, people: ["tarabalka"],
+          start: "09:35", end: "10:15", keynote: true, people: ["tarabalka"],
           title: "Earth Intelligence: Why AI Needs a Digital Nervous System for the Planet",
           abstract: [
             "Artificial Intelligence is becoming remarkably capable. But there is one thing it still lacks: a real-time understanding of the physical world. To make better decisions, intelligent systems need more than data. They need continuous awareness of what is happening across our planet. In this talk, we will explore how satellites, sensors, geospatial AI, and interconnected digital systems are coming together to create Earth Intelligence, a living digital nervous system for the planet. This emerging capability could fundamentally change how humanity manages resources, responds to crises, protects ecosystems, and understands a rapidly changing world. Because before machines can become truly intelligent, they must first learn to understand Earth."
           ]
         },
         {
-          start: "11:40", end: "12:20", keynote: true, people: ["shyju"],
-          title: "Redefining Weather Forecasting: Where AI Meets Satellite Vision",
-          abstract: [
-            "Weather forecasting is undergoing a major transformation driven by advances in satellite Earth observations, physics-based modelling, and artificial intelligence. Satellite observations and data assimilation have played a fundamental role in improving forecast skill, while emerging AI approaches are enabling faster and increasingly high-resolution prediction. The evolution toward AI-enabled weather and Earth system prediction brings together machine learning, physics-based models, satellite observations, and data-driven approaches. These advances also bring key scientific challenges, including the prediction of extreme events, physical consistency, uncertainty quantification, and generalization across different atmospheric conditions. Looking ahead, the integration of AI, physics-based modelling, data assimilation, and Earth observations offers a promising pathway toward more accurate, efficient, and high-resolution weather and environmental prediction."
-          ]
-        },
-        {
-          start: "12:20", end: "12:40", keynote: true, people: ["parshina"],
+          start: "10:15", end: "10:35", keynote: true, people: ["parshina"],
           title: "AI-Native Engineering: How AI Is Empowering Women to Build, Lead and Innovate",
           abstract: [
             "AI now writes much of the code behind real products, and software engineering practice is evolving just as quickly. In this talk, Tatiana Parshina, AI Technical Lead at EVA.ai, offers an inside view of how AI-native products are built and brought to production in 2026, and which skills matter most today.",
@@ -240,10 +234,17 @@ window.EVENT = {
           ]
         },
         {
-          start: "12:40", end: "13:00", keynote: true, people: ["naik"],
+          start: "10:35", end: "10:55", keynote: true, people: ["naik"],
           title: "Building AI We Can Trust",
           abstract: [
             "As artificial intelligence advances rapidly, our understanding of it must grow alongside its capabilities. How can we benefit from AI while ensuring it is safe, reliable, and accountable? This talk explores AI literacy and the importance of understanding both the potential and limitations of AI. Drawing on her research in autonomous driving and digital finance, Dr. Shraddha M. Naik will discuss how we can build and use AI responsibly. Through accessible real-world examples, the talk aims to provide practical insights and encourage students, particularly young women, to play an active role in shaping AI we can trust."
+          ]
+        },
+        {
+          start: "10:55", end: "11:35", keynote: true, people: ["shyju"],
+          title: "Redefining Weather Forecasting: Where AI Meets Satellite Vision",
+          abstract: [
+            "Weather forecasting is undergoing a major transformation driven by advances in satellite Earth observations, physics-based modelling, and artificial intelligence. Satellite observations and data assimilation have played a fundamental role in improving forecast skill, while emerging AI approaches are enabling faster and increasingly high-resolution prediction. The evolution toward AI-enabled weather and Earth system prediction brings together machine learning, physics-based models, satellite observations, and data-driven approaches. These advances also bring key scientific challenges, including the prediction of extreme events, physical consistency, uncertainty quantification, and generalization across different atmospheric conditions. Looking ahead, the integration of AI, physics-based modelling, data assimilation, and Earth observations offers a promising pathway toward more accurate, efficient, and high-resolution weather and environmental prediction."
           ]
         }
       ]
@@ -253,9 +254,9 @@ window.EVENT = {
       title: "Panel Discussion",
       icon: "people",
       items: [
-        { start: "13:00", end: "13:05", title: "Panel Theme & Panelist Introductions", detail: "Moderator: Dr. Ramsha Ahmed" },
-        { start: "13:05", end: "13:25", title: "Round 1: The Opportunity", detail: "How generative AI is changing learning, research and careers" },
-        { start: "13:25", end: "13:45", title: "Round 2: The Threat", detail: "Risks, responsible use and preparing the next generation" }
+        { start: "11:35", end: "11:40", title: "Panel Theme & Panelist Introductions", detail: "Moderator: Dr. Ramsha Ahmed" },
+        { start: "11:40", end: "12:00", title: "Round 1: The Opportunity", detail: "How generative AI is changing learning, research and careers" },
+        { start: "12:00", end: "12:20", title: "Round 2: The Threat", detail: "Risks, responsible use and preparing the next generation" }
       ]
     },
     {
@@ -263,9 +264,9 @@ window.EVENT = {
       title: "Closing",
       icon: "award",
       items: [
-        { start: "13:45", end: "14:05", title: "Appreciation Ceremony & Group Photo", who: "Organizing Committee & University Representatives" },
-        { start: "14:05", end: "14:10", title: "Closing Remarks", who: "Organizing Committee" },
-        { start: "14:10", end: "15:00", title: "Refreshments & Networking", who: "All participants" }
+        { start: "12:20", end: "12:40", title: "Appreciation Ceremony & Group Photo", who: "Organizing Committee & University Representatives" },
+        { start: "12:40", end: "12:45", title: "Closing Remarks", who: "Organizing Committee" },
+        { start: "12:45", end: "13:30", title: "Refreshments & Networking", who: "All participants" }
       ]
     }
   ],
@@ -273,25 +274,36 @@ window.EVENT = {
   /* ---------- Panel discussion ---------- */
   panel: {
     theme: "Generative AI: Opportunity or Threat for the Next Generation?",
-    start: "13:00",
-    end: "13:45",
+    start: "11:35",
+    end: "12:20",
     moderator: "ahmed",
     // Listed in speaking order
     panelists: ["alkaabi", "wahbah", "yousuf", "parshina"],
     rounds: [
-      { title: "Round 1: The Opportunity", start: "13:05", end: "13:25", text: "How generative AI is changing learning, research and careers" },
-      { title: "Round 2: The Threat", start: "13:25", end: "13:45", text: "Risks, responsible use and preparing the next generation" }
+      { title: "Round 1: The Opportunity", start: "11:40", end: "12:00", text: "How generative AI is changing learning, research and careers" },
+      { title: "Round 2: The Threat", start: "12:00", end: "12:20", text: "Risks, responsible use and preparing the next generation" }
     ]
   },
 
   /* ---------- Organizing committee ---------- */
   organizers: ["ahmed", "basiouni", "ghazal"],
 
-  /* ---------- Registration (hidden while url is empty) ---------- */
+  /* ---------- Registration ----------
+     The Register button, menu link and QR code all use this link.
+     The QR code is created automatically from the link.
+     Set url to "" to hide registration. It also hides itself
+     automatically once the event has ended.                          */
   registration: {
-    url: "",                 // e.g. a Microsoft Forms or Google Forms link
+    url: "https://forms.office.com/r/X3eiy9rzZ9",
     label: "Register to attend",
-    note: ""                 // e.g. "Registration closes on 9 November."
+    note: "Scan the code with your phone camera, or use the button, and fill in the short form."
+  },
+
+  /* ---------- Past events ----------
+     The "Past events" menu link opens this page on the events hub.  */
+  pastEvents: {
+    label: "Past events",
+    url: "/past-events/"
   },
 
   /* ---------- Contact (hidden while email is empty) ---------- */
